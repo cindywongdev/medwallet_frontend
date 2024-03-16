@@ -1,0 +1,7 @@
+const Record = (props) => {
+    return <>
+        <h1>Record</h1>
+    </>
+}
+
+export default Record

@@ -3,9 +3,13 @@
 // import viteLogo from '/vite.svg'
 // import './App.css'
 
+import { Outlet } from "react-router-dom"
+
 const App = () => {
   return <>
-    <h1>Hello World!</h1>
+    <div className="App">
+      <Outlet/>
+    </div>
   </>
 }
 
