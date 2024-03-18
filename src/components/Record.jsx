@@ -1,6 +1,6 @@
-const Record = (props) => {
+const Record = ({record}) => {
     return <>
-        <h1>Record</h1>
+        <h1>{record.covered_recipient_first_name}</h1>
     </>
 }
 
