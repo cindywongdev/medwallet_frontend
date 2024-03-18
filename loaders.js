@@ -4,8 +4,7 @@ export const indexLoader = async () => {
     const response = await fetch(URL + "/data")
     // const response = await fetch(URL + "/params/testinggg/ilovecheese?cheese=friedgouda")
     const response_json = await response.json()
-    // const records = response2["results"]
-    // console.log(records)
+    const records = response_json["results"]
     
-    return response_json
+    return records
 }

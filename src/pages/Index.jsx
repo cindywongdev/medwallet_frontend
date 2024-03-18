@@ -2,10 +2,7 @@ import Record from "../components/Record"
 import { useLoaderData } from "react-router-dom"
 
 const Index = (props) => {
-    const response_json = useLoaderData()
-    const records = response_json["results"]
-    console.log("THIS IS RESULTS")
-    console.log(records)
+    const records = useLoaderData()
 
     return <>
         {records.map((record) => {
