@@ -8,25 +8,37 @@ const Index = (props) => {
     const fieldNames = ["Record ID", "Recipient Type", "Full Name", "State", "City", "Paying Entity", "Amount", "Date", "Nature of Payment"]
 
     return <div className="index-container" class="
-                border-red-500 
-                border-4
+                border-2
+                border-black
+                w-full
                 mt-8
-                p-8
-                w-screen
+                rounded-2xl
             ">
 
             <div className="field-names" class="
-                flex
+                grid
+                grid-cols-11
+                w-full
                 gap-2
+                px-8
+                py-4
+                rounded-t-2xl
+                bg-gray-200
             ">
                 {fieldNames.map((fieldName) => 
-                    <FieldName fieldName={fieldName} key={fieldName}/>
+                    <FieldName fieldName={fieldName} key={fieldName} />
                 )}
             </div>
 
-        {records.map((record) => 
-            <Record record={record} key={record.record_id} />
+            <div className="records" class="
+                flex
+                flex-col
+            ">
+                {records.map((record) => 
+            <Record record={record} key={record.record_id}/>
         )}
+            </div>
+
     </div>
     {/* <h1>{records.one}</h1>
         <h1>{records.two}</h1>

@@ -7,7 +7,7 @@ import Header from "./components/Header"
 
 const App = () => {
   return <>
-    <div className="App">
+    <div className="App" class="w-screen p-8">
       <Header/>
       <Outlet/>
     </div>
