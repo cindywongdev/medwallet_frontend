@@ -1,30 +1,47 @@
 import { useState, useEffect } from "react"
-import { useLoaderData } from "react-router-dom"
+// import { useLoaderData } from "react-router-dom"
 import ReactPaginate from "react-paginate"
 import Record from "../components/Record"
 import FieldName from "../components/FieldName"
 
-const Index = (props) => {
-    let data = useLoaderData()
-    console.log(data.length)
+const Index = async (props) => {
+    // let data = useLoaderData()
 
     const fieldNames = ["Record ID", "Recipient Type", "Full Name", "State", "City", "Paying Entity", "Amount ($)", "Date", "Nature of Payment"]
 
+    const fetchRecords = async (currentPage) => {
+        const response = await fetch("https://medwallet-backend.onrender.com/data", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                currentPage: currentPage
+            })
+        })
+
+        const data = await response.json()
+        console.log(await data)
+        return await data
+    }
+
     const [currentPage, setCurrentPage] = useState(1)
+
+    const data = await fetchRecords(currentPage)
+
     const recordsPerPage = 10
     const lastIndex = currentPage * recordsPerPage
     const firstIndex = lastIndex - recordsPerPage
+    console.log("BREAK")
+    console.log(typeof(data))
     const records = data.slice(firstIndex, lastIndex)
-    const numPages = Math.ceil(data.length / recordsPerPage)
-    console.log(records.length)
-    console.log(numPages)
-
+    const numPages = Math.ceil(data.length / recordsPerPage) // we can grab count property from metadata so it's dynamic
 
     const handlePageClick = (e) => {
         const page_number = e.selected + 1
         setCurrentPage(page_number)
     }
-
+ 
     return <div className="index-container" class="
                 border-2
                 border-black

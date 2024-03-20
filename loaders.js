@@ -1,4 +1,4 @@
-const URL = "https://medwallet-backend.onrender.com/"
+const URL = "https://medwallet-backend.onrender.com"
 
 export const indexLoader = async () => {
     const response = await fetch(URL + "/data")
