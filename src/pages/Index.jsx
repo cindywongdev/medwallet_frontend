@@ -4,8 +4,9 @@ import { useLoaderData } from "react-router-dom"
 
 const Index = (props) => {
     const records = useLoaderData()
+    console.log(records.length)
 
-    const fieldNames = ["Record ID", "Recipient Type", "Full Name", "State", "City", "Paying Entity", "Amount", "Date", "Nature of Payment"]
+    const fieldNames = ["Record ID", "Recipient Type", "Full Name", "State", "City", "Paying Entity", "Amount ($)", "Date", "Nature of Payment"]
 
     return <div className="index-container" class="
                 border-2
