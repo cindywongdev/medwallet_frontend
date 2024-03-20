@@ -5,10 +5,6 @@
 @import "https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap";
 
 :root {
-  font-family: Jost, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
   color-scheme: light dark;
   color: black;
   background-color: white;
@@ -16,6 +12,7 @@
 
 body {
   // padding: 3rem;
+  font-family: Jost, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 
 a {
