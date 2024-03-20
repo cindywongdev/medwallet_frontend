@@ -4,44 +4,48 @@ import ReactPaginate from "react-paginate"
 import Record from "../components/Record"
 import FieldName from "../components/FieldName"
 
-const Index = async (props) => {
+const Index = (props) => {
     // let data = useLoaderData()
 
     const fieldNames = ["Record ID", "Recipient Type", "Full Name", "State", "City", "Paying Entity", "Amount ($)", "Date", "Nature of Payment"]
 
-    const fetchRecords = async (currentPage) => {
-        const response = await fetch("https://medwallet-backend.onrender.com/data", {
+    const[data, setData] = useState([])
+    useEffect(() => {
+        fetch("https://medwallet-backend.onrender.com/data", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                currentPage: currentPage
+                // currentPage: currentPage
             })
-        })
+        }).then((res) => {
+            return res.json()
+        }).then((data) => {
+            console.log(data)
+            setData(data)
+        }).catch((error) => console.log(error))
+    })
 
-        const data = await response.json()
-        console.log(await data)
-        return await data
-    }
+    // console.log("Data:", data)
 
-    const [currentPage, setCurrentPage] = useState(1)
+    // const [currentPage, setCurrentPage] = useState(1)
 
-    const data = await fetchRecords(currentPage)
+    // const records = fetchRecords()
 
-    const recordsPerPage = 10
-    const lastIndex = currentPage * recordsPerPage
-    const firstIndex = lastIndex - recordsPerPage
-    console.log("BREAK")
-    console.log(typeof(data))
-    const records = data.slice(firstIndex, lastIndex)
-    const numPages = Math.ceil(data.length / recordsPerPage) // we can grab count property from metadata so it's dynamic
+    // const recordsPerPage = 10
+    // const lastIndex = currentPage * recordsPerPage
+    // const firstIndex = lastIndex - recordsPerPage
+    // // console.log("BREAK")
+    // console.log(typeof(data))
+    // const records = data.slice(firstIndex, lastIndex)
+    // const numPages = Math.ceil(data.length / recordsPerPage) // we can grab count property from metadata so it's dynamic
 
-    const handlePageClick = (e) => {
-        const page_number = e.selected + 1
-        setCurrentPage(page_number)
-    }
- 
+    // const handlePageClick = (e) => {
+    //     const page_number = e.selected + 1
+    //     setCurrentPage(page_number)
+    // }
+
     return <div className="index-container" class="
                 border-2
                 border-black
@@ -51,7 +55,7 @@ const Index = async (props) => {
                 rounded-2xl
             ">
 
-            <div className="field-names" class="
+        <div className="field-names" class="
                 grid
                 grid-cols-11
                 w-full
@@ -61,45 +65,23 @@ const Index = async (props) => {
                 rounded-t-2xl
                 bg-gray-200
             ">
-                {fieldNames.map((fieldName) => 
-                    <FieldName fieldName={fieldName} key={fieldName} />
-                )}
-            </div>
+            {fieldNames.map((fieldName) =>
+                <FieldName fieldName={fieldName} key={fieldName} />
+            )}
+        </div>
 
-            <div className="records" class="
+        <div className="records" class="
                 flex
                 flex-col
             ">
-                {records.map((record) => 
-            <Record record={record} key={record.record_id}/>
-        )}
-            </div>
+            {data.map((record) =>
+                <Record record={record} key={record.record_id} />
+            )}
+        </div>
 
-            <ReactPaginate
-                previousLabel={"Prev"}
-                nextLabel={"Next"}
-                breakLabel={"..."}
-                pageCount={numPages}
-                marginPagesDisplayed={2}
-                pageRangeDisplayed={3}
-                onPageChange={handlePageClick}
-                containerClassName={"pagination justify-content-center"}
-                pageClassName={"page-item"}
-                pageLinkClassName={"page-link"}
-                previousClassName={"page-item"}
-                previousLinkClassName={"page-link"}
-                nextClassName={"page-item"}
-                nextLinkClassName={"page-link"}
-                breakClassName={"page-item"}
-                breakLinkClassName={"page-link"}
-                activeClassName={"active"}
-            />
+
 
     </div>
-    {/* <h1>{records.one}</h1>
-        <h1>{records.two}</h1>
-        <h1>{records.query}</h1> */}
-
 }
 
 export default Index
