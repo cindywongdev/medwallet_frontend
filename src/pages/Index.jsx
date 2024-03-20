@@ -17,7 +17,7 @@ const Index = (props) => {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                // currentPage: currentPage
+                currentPage: currentPage
             })
         }).then((res) => {
             return res.json()
@@ -27,24 +27,19 @@ const Index = (props) => {
         }).catch((error) => console.log(error))
     })
 
-    // console.log("Data:", data)
+    const [currentPage, setCurrentPage] = useState(1)
 
-    // const [currentPage, setCurrentPage] = useState(1)
 
-    // const records = fetchRecords()
+    const recordsPerPage = 10
+    const lastIndex = currentPage * recordsPerPage
+    const firstIndex = lastIndex - recordsPerPage
+    const records = data.slice(firstIndex, lastIndex)
+    const numPages = Math.ceil(data.length / recordsPerPage) // we can grab count property from metadata so it's dynamic
 
-    // const recordsPerPage = 10
-    // const lastIndex = currentPage * recordsPerPage
-    // const firstIndex = lastIndex - recordsPerPage
-    // // console.log("BREAK")
-    // console.log(typeof(data))
-    // const records = data.slice(firstIndex, lastIndex)
-    // const numPages = Math.ceil(data.length / recordsPerPage) // we can grab count property from metadata so it's dynamic
-
-    // const handlePageClick = (e) => {
-    //     const page_number = e.selected + 1
-    //     setCurrentPage(page_number)
-    // }
+    const handlePageClick = (e) => {
+        const page_number = e.selected + 1
+        setCurrentPage(page_number)
+    }
 
     return <div className="index-container" class="
                 border-2
@@ -74,12 +69,30 @@ const Index = (props) => {
                 flex
                 flex-col
             ">
-            {data.map((record) =>
+            {records.map((record) =>
                 <Record record={record} key={record.record_id} />
             )}
         </div>
 
-
+        <ReactPaginate
+            previousLabel={"Prev"}
+            nextLabel={"Next"}
+            breakLabel={"..."}
+            pageCount={numPages}
+            marginPagesDisplayed={2}
+            pageRangeDisplayed={3}
+            onPageChange={handlePageClick}
+            containerClassName={"pagination justify-content-center"}
+            pageClassName={"page-item"}
+            pageLinkClassName={"page-link"}
+            previousClassName={"page-item"}
+            previousLinkClassName={"page-link"}
+            nextClassName={"page-item"}
+            nextLinkClassName={"page-link"}
+            breakClassName={"page-item"}
+            breakLinkClassName={"page-link"}
+            activeClassName={"active"}
+        />
 
     </div>
 }
