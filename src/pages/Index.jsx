@@ -25,7 +25,7 @@ const Index = (props) => {
             console.log(data)
             setData(data)
         }).catch((error) => console.log(error))
-    })
+    }, [])
 
     const [currentPage, setCurrentPage] = useState(1)
 
