@@ -1,13 +1,10 @@
 import { useState, useEffect } from "react"
 // import { useLoaderData } from "react-router-dom"
 import ReactPaginate from "react-paginate"
-import Record from "../components/Record"
-import FieldName from "../components/FieldName"
+import RecordsDisplay from "../components/RecordsDisplay"
 
 const Index = ({props}) => {
     // let data = useLoaderData()
-
-    const fieldNames = ["Record ID", "Recipient Type", "Full Name", "State", "City", "Paying Entity", "Amount ($)", "Date", "Nature of Payment"]
 
     const [data, setData] = useState([])
     const [currentPage, setCurrentPage] = useState(1)
@@ -32,42 +29,7 @@ const Index = ({props}) => {
 
     return <>
 
-        <div className="
-                index-container
-                border-2
-                border-black
-                w-full
-                min-h-screen
-                my-8
-                rounded-2xl
-            ">
-
-            <div className="
-                field-names
-                grid
-                grid-cols-11
-                w-full
-                gap-2
-                px-8
-                py-4
-                rounded-t-2xl
-                bg-gray-200
-            ">
-                {fieldNames.map((fieldName) =>
-                    <FieldName fieldName={fieldName} key={fieldName} />
-                )}
-            </div>
-
-            <div className="
-                records
-                flex
-                flex-col
-            ">
-                {data.map((record) =>
-                    <Record record={record} key={record.record_id} />
-                )}
-            </div>
-        </div>
+        <RecordsDisplay data={data}/>
 
         <ReactPaginate
             previousLabel={"Prev"}
