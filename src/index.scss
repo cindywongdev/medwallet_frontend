@@ -10,6 +10,11 @@
   background-color: white;
 }
 
+::selection {
+  color: white;
+  background: #0d6efd;
+}
+
 body {
   // padding: 3rem;
   font-family: Jost, system-ui, Avenir, Helvetica, Arial, sans-serif;

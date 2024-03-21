@@ -1,17 +1,11 @@
 import { FaMagnifyingGlass } from "react-icons/fa6";
 
-const SearchBar = (props) => {
-    const handleSearch = (e) => {
-        console.log("HIIEIJFKSDF")
-        e.preventDefault()
-        e.isDefaultPrevented()
-    }
-
+const SearchBar = ({onRecipTypeQChange, handleSearch}) => {
     return <div className="flex items-center gap-6 px-4">
         <FaMagnifyingGlass size={25}/>
-        <label htmlFor="search_query" className="text-lg">Search:</label>
+        <label htmlFor="search_form" className="text-lg font-medium">Search:</label>
         <form onSubmit={handleSearch} method="GET" id="search_form" className="flex gap-4">
-            <input type="text" id="search_query" name="search_query" required minLength="1" placeholder="type here..." className="
+            <input onChange={onRecipTypeQChange} type="text" id="recipTypeQ" name="recipTypeQ" required minLength="1" placeholder="search by recipient type..." className="
                 border-2
                 border-gray-600
                 bg-white
