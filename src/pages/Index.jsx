@@ -17,18 +17,10 @@ const Index = (props) => {
 
 
     useEffect(() => {
-        fetch("https://medwallet-backend.onrender.com/data", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                currentPage: currentPage
-            })
-        }).then((res) => {
+        fetch(`https://medwallet-backend.onrender.com/data/${currentPage}`
+        ).then((res) => {
             return res.json()
         }).then((data) => {
-            console.log(data)
             setData(data)
         }).catch((error) => console.log(error))
     }, [currentPage])
