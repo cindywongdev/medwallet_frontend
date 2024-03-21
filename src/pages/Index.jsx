@@ -9,7 +9,7 @@ const Index = (props) => {
 
     const fieldNames = ["Record ID", "Recipient Type", "Full Name", "State", "City", "Paying Entity", "Amount ($)", "Date", "Nature of Payment"]
 
-    const[data, setData] = useState([])
+    const [data, setData] = useState([])
     const [currentPage, setCurrentPage] = useState(1)
 
     const recordsPerPage = 50
@@ -30,17 +30,19 @@ const Index = (props) => {
         setCurrentPage(page_number)
     }
 
-    return <div className="
+    return <>
+
+        <div className="
                 index-container
                 border-2
                 border-black
                 w-full
                 min-h-screen
-                mt-8
+                my-8
                 rounded-2xl
             ">
 
-        <div className="
+            <div className="
                 field-names
                 grid
                 grid-cols-11
@@ -51,19 +53,20 @@ const Index = (props) => {
                 rounded-t-2xl
                 bg-gray-200
             ">
-            {fieldNames.map((fieldName) =>
-                <FieldName fieldName={fieldName} key={fieldName} />
-            )}
-        </div>
+                {fieldNames.map((fieldName) =>
+                    <FieldName fieldName={fieldName} key={fieldName} />
+                )}
+            </div>
 
-        <div className="
+            <div className="
                 records
                 flex
                 flex-col
             ">
-            {data.map((record) =>
-                <Record record={record} key={record.record_id} />
-            )}
+                {data.map((record) =>
+                    <Record record={record} key={record.record_id} />
+                )}
+            </div>
         </div>
 
         <ReactPaginate
@@ -86,7 +89,7 @@ const Index = (props) => {
             activeClassName={"active"}
         />
 
-    </div>
+    </>
 }
 
 export default Index
