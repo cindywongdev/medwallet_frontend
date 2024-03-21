@@ -10,13 +10,13 @@ const Index = (props) => {
     const fieldNames = ["Record ID", "Recipient Type", "Full Name", "State", "City", "Paying Entity", "Amount ($)", "Date", "Nature of Payment"]
 
     const[data, setData] = useState([])
-
     const [currentPage, setCurrentPage] = useState(1)
-    const recordsPerPage = 10
-    const lastIndex = currentPage * recordsPerPage
-    const firstIndex = lastIndex - recordsPerPage
-    const records = data.slice(firstIndex, lastIndex)
-    const numPages = Math.ceil(data.length / recordsPerPage) // we can grab count property from metadata so it's dynamic
+
+    const recordsPerPage = 50
+    // const lastIndex = currentPage * recordsPerPage
+    // const firstIndex = lastIndex - recordsPerPage
+    // const records = data.slice(firstIndex, lastIndex)
+    const numPages = Math.ceil(13151823 / recordsPerPage) // we can grab count property from metadata so it's dynamic
 
 
     useEffect(() => {
@@ -70,7 +70,7 @@ const Index = (props) => {
                 flex
                 flex-col
             ">
-            {records.map((record) =>
+            {data.map((record) =>
                 <Record record={record} key={record.record_id} />
             )}
         </div>
