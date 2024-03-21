@@ -30,7 +30,8 @@ const Index = (props) => {
         setCurrentPage(page_number)
     }
 
-    return <div className="index-container" class="
+    return <div className="
+                index-container
                 border-2
                 border-black
                 w-full
@@ -39,7 +40,8 @@ const Index = (props) => {
                 rounded-2xl
             ">
 
-        <div className="field-names" class="
+        <div className="
+                field-names
                 grid
                 grid-cols-11
                 w-full
@@ -54,7 +56,8 @@ const Index = (props) => {
             )}
         </div>
 
-        <div className="records" class="
+        <div className="
+                records
                 flex
                 flex-col
             ">
