@@ -7,16 +7,19 @@ const App = () => {
   const [recipTypeQ, setRecipTypeQ] = useState("")
 
   const handleSearch = (e) => {
-    console.log("Submitted!") // can remove this
     e.preventDefault()
 
-    const form = e.target
-    const formData = new FormData(form)
+    // const form = e.target
+    // console.log(form)
+    // const formData = new FormData(form)
+    // console.log(formData)
 
-    // fetch
-    
-
-    console.log(formData)
+    fetch(`http://localhost:5000/search/${recipTypeQ}`
+    ).then((res) => {
+        return res.json()
+    }).then((data) => {
+        //set some state var
+    }).catch((error) => console.log(error))
   }
 
   const onRecipTypeQChange = (e) => {

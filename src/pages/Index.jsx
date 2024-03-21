@@ -4,7 +4,7 @@ import ReactPaginate from "react-paginate"
 import Record from "../components/Record"
 import FieldName from "../components/FieldName"
 
-const Index = (props) => {
+const Index = ({props}) => {
     // let data = useLoaderData()
 
     const fieldNames = ["Record ID", "Recipient Type", "Full Name", "State", "City", "Paying Entity", "Amount ($)", "Date", "Nature of Payment"]
