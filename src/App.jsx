@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Outlet, redirect, useNavigate } from "react-router-dom"
+import { Outlet, useNavigate } from "react-router-dom"
 import Header from "./components/Header"
 
 const App = () => {
@@ -17,7 +17,7 @@ const App = () => {
     // const formData = new FormData(form)
     // console.log(formData)
 
-    fetch(`http://localhost:5000/search/${recipTypeQ}` // CHANGE URL!!
+    fetch(`https://medwallet-backend.onrender.com/search/${recipTypeQ}` // CHANGE URL!!
     ).then((res) => {
         return res.json()
     }).then((data) => {
@@ -25,7 +25,6 @@ const App = () => {
     }).catch((error) => console.log(error))
 
     navigate("/search")
-    // return redirect("/search")
   }
 
   const onRecipTypeQChange = (e) => {
