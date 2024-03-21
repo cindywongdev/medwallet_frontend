@@ -3,6 +3,7 @@
 import { createBrowserRouter, createRoutesFromElements, Route, Routes } from "react-router-dom";
 import App from "./App"
 import Index from "./pages/Index"
+import SearchResults from "./pages/SearchResults";
 import Show from "./pages/Show"
 // import { indexLoader } from "../loaders";
 
@@ -14,6 +15,7 @@ const router = createBrowserRouter(createRoutesFromElements(
                 element={<Index/>}
                 // loader={indexLoader}
             />
+            <Route path="search" element={<SearchResults/>}/>
             <Route path="post/:id" element={<Show/>}/>
         </Route>
     </>

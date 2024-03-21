@@ -1,8 +1,10 @@
 import { useState } from 'react'
-import { Outlet } from "react-router-dom"
+import { Outlet, redirect, useNavigate } from "react-router-dom"
 import Header from "./components/Header"
 
 const App = () => {
+  const navigate = useNavigate()
+
   // Create search query state variable here so that we can pass the function down to SearchBar and Index components to update state.
   const [recipTypeQ, setRecipTypeQ] = useState("")
   const [searchResults, setSearchResults] = useState([])
@@ -21,6 +23,9 @@ const App = () => {
     }).then((data) => {
         setSearchResults(data)
     }).catch((error) => console.log(error))
+
+    navigate("/search")
+    // return redirect("/search")
   }
 
   const onRecipTypeQChange = (e) => {
@@ -31,7 +36,7 @@ const App = () => {
   return <>
     <div className="App w-screen p-8">
       <Header onRecipTypeQChange={onRecipTypeQChange} handleSearch={handleSearch} />
-      <Outlet />
+      <Outlet context={[searchResults, setSearchResults]} />
     </div>
   </>
 }
