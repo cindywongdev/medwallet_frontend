@@ -29,7 +29,6 @@ const App = () => {
 
   const onRecipTypeQChange = (e) => {
     setRecipTypeQ(e.target.value)
-    console.log(e.target.value)
   }
 
   return <>

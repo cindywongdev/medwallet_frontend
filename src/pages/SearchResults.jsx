@@ -12,7 +12,9 @@ const SearchResults = () => {
     //         navigate("/")
     // }
 
-    return <RecordsDisplay data={searchResults}/>
+    return <div>
+        <RecordsDisplay data={searchResults}/>
+    </div>
 }
 
 export default SearchResults
