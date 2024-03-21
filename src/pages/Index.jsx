@@ -17,8 +17,7 @@ const Index = (props) => {
 
 
     useEffect(() => {
-        // fetch("https://medwallet-backend.onrender.com/data", {
-        fetch("http://localhost:5000/data", {
+        fetch("https://medwallet-backend.onrender.com/data", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

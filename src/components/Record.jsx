@@ -1,5 +1,5 @@
 const Record = ({record}) => {
-    // the covered_recipient_type field always starts with "Covered Recipient" (e.g. Covered Recipient Physician, Covered Recipient Non-Physician) regardless of the type, so this function shortens the field to only the necessary info
+    // The covered_recipient_type field always starts with "Covered Recipient" (e.g. Covered Recipient Physician, Covered Recipient Non-Physician) regardless of the type, so this function shortens the field to only the necessary info.
     const shortenRecipientType = (recipientType) => {
         return recipientType.slice(18)
     }
