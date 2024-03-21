@@ -13,9 +13,6 @@ const Index = (props) => {
     const [currentPage, setCurrentPage] = useState(1)
 
     const recordsPerPage = 50
-    // const lastIndex = currentPage * recordsPerPage
-    // const firstIndex = lastIndex - recordsPerPage
-    // const records = data.slice(firstIndex, lastIndex)
     const numPages = Math.ceil(13151823 / recordsPerPage) // we can grab count property from metadata so it's dynamic
 
 

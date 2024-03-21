@@ -13,7 +13,7 @@ const Record = ({record}) => {
         <p class="col-span-2">{record.applicable_manufacturer_or_applicable_gpo_making_payment_name}</p>
         <p>{record.total_amount_of_payment_usdollars}</p>
         <p>{record.date_of_payment}</p>
-        <p>{record.nature_of_payment_or_transfer_of_value}</p>
+        <p class="h-fit truncate">{record.nature_of_payment_or_transfer_of_value}</p>
     </div>
 }
 
