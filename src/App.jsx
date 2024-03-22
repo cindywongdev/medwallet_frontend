@@ -21,11 +21,6 @@ const App = () => {
       useNavigate('/')
     }
 
-    // const form = e.target
-    // console.log(form)
-    // const formData = new FormData(form)
-    // console.log(formData)
-
     fetch(`http://127.0.0.1:5000/search/${recipTypeQ}`
     ).then((res) => {
         return res.json()

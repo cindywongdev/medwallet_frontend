@@ -1,12 +1,10 @@
 import { useState, useEffect } from "react"
-import { useOutletContext } from "react-router-dom"
 import ReactPaginate from "react-paginate"
 import RecordsDisplay from "../components/RecordsDisplay"
 
 const Index = (props) => {
 
     const [data, setData] = useState([])
-    const [searchResults, setSearchResults] = useOutletContext()
     const [currentPage, setCurrentPage] = useState(1)
 
     const recordsPerPage = 50
