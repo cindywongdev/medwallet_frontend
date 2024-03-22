@@ -28,12 +28,7 @@ const Index = (props) => {
     }
 
     return <>
-
-        <RecordsDisplay data={data}/>
-
         <ReactPaginate
-            data-test="paginate-component"
-
             previousLabel={"Prev"}
             nextLabel={"Next"}
             breakLabel={"..."}
@@ -53,6 +48,7 @@ const Index = (props) => {
             activeClassName={"active"}
         />
 
+        <RecordsDisplay data={data} />
     </>
 }
 

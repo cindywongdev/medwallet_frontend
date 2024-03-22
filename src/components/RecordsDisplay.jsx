@@ -11,7 +11,7 @@ const RecordsDisplay = ({data}) => {
                 border-black
                 w-full
                 min-h-screen
-                my-8
+                mt-4
                 rounded-2xl
             ">
 

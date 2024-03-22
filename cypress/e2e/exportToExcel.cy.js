@@ -14,5 +14,4 @@ describe('export to excel button functionality test', () => {
     cy.getDataTest('export-button').click()
     cy.readFile("cypress/downloads/searchResults_export.xlsx")
   })
-
 })
