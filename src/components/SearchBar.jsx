@@ -14,7 +14,7 @@ const SearchBar = ({onRecipTypeQChange, handleSearch}) => {
                 w-72
             "/>
 
-            <button type="submit" form="search_form" value="Submit" className="border-1 border-gray-300">Submit</button>
+            <button type="submit" form="search_form" value="Submit" className="hover:text-white hover:bg-gray-600 hover:border-gray-600 transition-colors">Submit</button>
         </form>
     </div>
 }
