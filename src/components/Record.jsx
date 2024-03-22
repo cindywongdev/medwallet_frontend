@@ -1,5 +1,5 @@
 const Record = ({record}) => {
-    return <div className="grid grid-cols-11 gap-2 px-8 py-4 items-center border-b-2 border-gray-500 last:border-none">
+    return <div data-test={`record-${record.record_id}`} className="grid grid-cols-11 gap-2 px-8 py-4 items-center border-b-2 border-gray-500 last:border-none">
         <p>{record.record_id}</p>
         <p className="truncate">{record.covered_recipient_primary_type_1}</p>
         <p className="col-span-2">{record.covered_recipient_first_name} {record.covered_recipient_last_name}</p>

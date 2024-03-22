@@ -33,6 +33,8 @@ const Index = (props) => {
         <RecordsDisplay data={data}/>
 
         <ReactPaginate
+            data-test="paginate-component"
+
             previousLabel={"Prev"}
             nextLabel={"Next"}
             breakLabel={"..."}
