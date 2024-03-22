@@ -64,12 +64,13 @@ npm run dev
 ```
 
 **Running Cypress Tests**
+
 Open up new terminal in the frontend repository and open the cypress runner:
 ```shell
 npx cypress open
 ```
-Click E2E Testing.
-Click Start E2E Testing in Chrome. You should now see a list of the test specs.
+Click E2E Testing.\
+Click Start E2E Testing in Chrome. You should now see a list of the test specs.\
 Click on the spec you want to run and watch your tests run!
 
 ## Features
