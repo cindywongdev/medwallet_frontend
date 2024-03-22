@@ -46,13 +46,14 @@ The payment data is visible on the homepage. Users can navigate this data using 
 
 **Prerequisites**
 
-To run Medwallet, you will need to have Python 3, Node, and NPM installed on your machine.
+To run Medwallet, you will need to have Python 3 (version 3.3 or later), Node, and NPM installed on your machine.
 
 **Running Medwallet on your machine**
 
-Clone the Medwallet backend repository
+Clone the Medwallet backend repository and cd into it
 ```shell
 git clone https://github.com/cindywongdev/medwallet_backend.git
+cd medwallet_backend
 ```
 Create and activate the virtual environment
 ```shell
@@ -67,9 +68,10 @@ Run the app on localhost
 ```shell
 FLASK_APP=server python3 -m flask run
 ```
-Clone the Medwallet frontend repository (this repository)
+Clone the Medwallet frontend repository (this repository) and cd into it
 ```shell
 git clone https://github.com/cindywongdev/medwallet_frontend.git
+cd medwallet_frontend
 ```
 Install dependencies using npm
 ```shell
