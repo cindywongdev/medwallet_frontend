@@ -48,7 +48,7 @@ The payment data is visible on the homepage. Users can navigate this data using 
 
 To run Medwallet, you will need to have Python 3, Node, and NPM installed on your machine.
 
-**Running Route Trout on your machine**
+**Running Medwallet on your machine**
 
 Clone the Medwallet backend repository
 ```shell
