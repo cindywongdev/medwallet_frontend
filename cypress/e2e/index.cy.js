@@ -1,5 +1,14 @@
 describe('index page functionality test', () => {
-  it('passes', () => {
-    cy.visit('http://localhost:5173/')
+  beforeEach(() => {
+    cy.visit('/')
+  })
+
+  it('checks that data exists', () => {
+    cy.getDataTest('records-display').contains(/Justin Mitchell/i)
+    cy.getDataTest('records-display').contains(/Bryan McCullough/i)
+  })
+
+  it('can navigate data using page buttons', () => {
+    
   })
 })

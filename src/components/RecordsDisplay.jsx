@@ -33,7 +33,7 @@ const RecordsDisplay = ({data}) => {
                 )}
             </div>
 
-            <div className="
+            <div data-test="records-display" className="
                 records
                 flex
                 flex-col
