@@ -2,8 +2,6 @@ import Record from "../components/Record"
 import FieldName from "../components/FieldName"
 
 const RecordsDisplay = ({data}) => {
-    console.log("RECORDS DISPLAY DATA: ", data)
-
     const fieldNames = ["Record ID", "Recipient Type", "Full Name", "State", "City", "Paying Entity", "Amount ($)", "Date", "Nature of Payment"]
 
     return <>

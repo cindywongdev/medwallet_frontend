@@ -7,7 +7,6 @@ const Index = (props) => {
 
     const [data, setData] = useState([])
     const [searchResults, setSearchResults] = useOutletContext()
-    console.log("INDEX PAGE SEARCH RESULTS: ", searchResults)
     const [currentPage, setCurrentPage] = useState(1)
 
     const recordsPerPage = 50

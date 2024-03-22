@@ -19,8 +19,6 @@ const SearchResults = () => {
     const EXCEL_EXTENSION = '.xlsx';
 
     const exportToExcel = () => {
-        console.log("passed down successfully!")
-
         const worksheet = utils.json_to_sheet(searchResults)
         const workbook = {
             Sheets: {
@@ -30,7 +28,6 @@ const SearchResults = () => {
         }
 
         const excelBuffer = write(workbook, {bookType: 'xlsx', type: 'array'})
-        console.log(excelBuffer) // can remove
         saveAsExcel(excelBuffer, 'searchResults')
     }
 

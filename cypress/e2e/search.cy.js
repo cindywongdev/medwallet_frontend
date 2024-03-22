@@ -3,6 +3,10 @@ describe('search functionality test', () => {
     cy.visit('/')
   })
 
+  // potentital additional tests:
+  // search by city
+  // typahead
+
   it('can search by recipient type', () => {
     cy.getDataTest('search-form').find('input').as('search-input')
 
