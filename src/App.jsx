@@ -5,7 +5,6 @@ import Header from "./components/Header"
 const App = () => {
   const navigate = useNavigate()
 
-  // Create search query state variable here so that we can pass the function down to SearchBar and Index components to update state.
   const [recipTypeQ, setRecipTypeQ] = useState("")
   const [searchResults, setSearchResults] = useState([])
 
@@ -18,7 +17,7 @@ const App = () => {
     // const formData = new FormData(form)
     // console.log(formData)
 
-    fetch(`https://medwallet-backend.onrender.com/search/${recipTypeQ}` // CHANGE URL!!
+    fetch(`http://localhost:5000/search/${recipTypeQ}`
     ).then((res) => {
         return res.json()
     }).then((data) => {

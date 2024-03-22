@@ -14,7 +14,7 @@ const Index = (props) => {
 
 
     useEffect(() => {
-        fetch(`https://medwallet-backend.onrender.com/data/${currentPage}`
+        fetch(`http://localhost:5000/data/${currentPage}`
         ).then((res) => {
             return res.json()
         }).then((data) => {
