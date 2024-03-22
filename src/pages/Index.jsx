@@ -8,8 +8,8 @@ const Index = (props) => {
     const [currentPage, setCurrentPage] = useState(1)
 
     const recordsPerPage = 50
-    const numPages = Math.ceil(13151823 / recordsPerPage) // we can grab count property from metadata so it's dynamic
-
+    // total number of records in general payments 2022 file: 13151823
+    const numPages = Math.ceil(13151823 / recordsPerPage) 
 
     useEffect(() => {
         fetch(`/api/data/${currentPage}`
