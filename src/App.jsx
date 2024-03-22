@@ -17,7 +17,7 @@ const App = () => {
     // const formData = new FormData(form)
     // console.log(formData)
 
-    fetch(`http://localhost:5000/search/${recipTypeQ}`
+    fetch(`http://127.0.0.1:5000/search/${recipTypeQ}`
     ).then((res) => {
         return res.json()
     }).then((data) => {
