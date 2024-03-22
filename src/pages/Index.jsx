@@ -1,11 +1,9 @@
 import { useState, useEffect } from "react"
 import { useOutletContext } from "react-router-dom"
-// import { useLoaderData } from "react-router-dom"
 import ReactPaginate from "react-paginate"
 import RecordsDisplay from "../components/RecordsDisplay"
 
 const Index = (props) => {
-    // let data = useLoaderData()
 
     const [data, setData] = useState([])
     const [searchResults, setSearchResults] = useOutletContext()
