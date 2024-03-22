@@ -21,5 +21,13 @@ describe('search functionality test', () => {
     cy.getDataTest('records-display').within(() => {
       cy.get('[data-test^="record"]').should('have.length', 50)
     })
+
+    cy.contains(/Certified Registered Nurse Anesthetist/i).should('not.exist')
+    cy.get('@search-input').type('Certified Registered Nurse Anesthetist')
+    cy.getDataTest('submit-button').click()
+    cy.contains(/Certified Registered Nurse Anesthetist/i).should('exist')
+    cy.getDataTest('records-display').within(() => {
+      cy.get('[data-test^="record"]').should('have.length', 50)
+    })
   })
 })
