@@ -11,6 +11,7 @@ const App = () => {
 
   const handleSearch = (e) => {
     e.preventDefault()
+    e.target.reset()
 
     // const form = e.target
     // console.log(form)
