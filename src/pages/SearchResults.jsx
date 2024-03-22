@@ -1,9 +1,9 @@
-import { useOutletContext, useNavigate } from "react-router-dom"
+import { useOutletContext } from "react-router-dom"
 import RecordsDisplay from "../components/RecordsDisplay"
 import ExportButton from "../components/ExportButton";
 
 const SearchResults = () => {
-    const [searchResults, setSearchResults] = useOutletContext()
+    const [searchResults] = useOutletContext()
 
     return <div>
         <div className="flex justify-between items-end mt-4">

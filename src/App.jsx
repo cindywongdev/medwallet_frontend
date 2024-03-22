@@ -6,11 +6,20 @@ const App = () => {
   const navigate = useNavigate()
 
   const [recipTypeQ, setRecipTypeQ] = useState("")
+  const [isValidQuery, setIsValidQuery] = useState(true)
   const [searchResults, setSearchResults] = useState([])
+
+  const validRecipTypes = ["medical doctor", "doctor of osteopathy", "doctor of podiatric medicine", "physician assistant", "nurse practitioner", "certified registered nurse anesthetist", "doctor of dentistry"]
 
   const handleSearch = (e) => {
     e.preventDefault()
     e.target.reset()
+
+    if (validRecipTypes.indexOf(recipTypeQ.toLowerCase()) === -1) {
+      alert('Oops! No results found. Please enter one of the following valid recipient types: medical doctor, doctor of osteopathy, doctor of podiatric medicine, physician assistant, nurse practitioner, certified registered nurse anesthetist, or doctor of dentistry.')
+
+      useNavigate('/')
+    }
 
     // const form = e.target
     // console.log(form)
@@ -34,7 +43,10 @@ const App = () => {
   return <>
     <div className="App w-screen p-8">
       <Header onRecipTypeQChange={onRecipTypeQChange} handleSearch={handleSearch} />
-      <Outlet context={[searchResults, setSearchResults]} />
+      <Outlet context={[
+        searchResults, setSearchResults,
+        isValidQuery, setIsValidQuery
+      ]} />
     </div>
   </>
 }
