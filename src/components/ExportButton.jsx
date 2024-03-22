@@ -21,7 +21,7 @@ const ExportButton = ({searchResults}) => {
 
     const saveAsExcel = (buffer, filename) => {
         const data = new Blob([buffer], { type: EXCEL_TYPE })
-        saveAs(data, filename + '_export' + new Date().getTime() + EXCEL_EXTENSION)
+        saveAs(data, filename + '_export' + EXCEL_EXTENSION)
     }
 
     return <button data-test="export-button" onClick={exportToExcel} className="hover:bg-blue-600 hover:border-blue-600 hover:text-white transition-colors">
