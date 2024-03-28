@@ -22,10 +22,6 @@ const App = () => {
 
   useEffect(checkTypaheadMatches, [recipTypeQ])
 
-  const onRecipTypeQChange = (e) => {
-    setRecipTypeQ(e.target.value)
-  }
-
   const handleSearch = (e) => {
     e.preventDefault()
     e.target.reset()
@@ -44,6 +40,10 @@ const App = () => {
     }).catch((error) => console.log(error))
 
     navigate("/search")
+  }
+
+  const onRecipTypeQChange = (e) => {
+    setRecipTypeQ(e.target.value)
   }
 
   return <>
