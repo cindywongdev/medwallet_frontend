@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Outlet, useNavigate } from "react-router-dom"
 import Header from "./components/Header"
 
@@ -7,7 +7,7 @@ const App = () => {
   const validRecipTypes = ["medical doctor", "doctor of osteopathy", "doctor of podiatric medicine", "physician assistant", "nurse practitioner", "certified registered nurse anesthetist", "doctor of dentistry"]
 
   const [recipTypeQ, setRecipTypeQ] = useState("")
-  const [typaheadMatches, setTypaheadMatches] = useState(validRecipTypes)
+  const [typaheadMatches, setTypaheadMatches] = useState([])
   const [searchResults, setSearchResults] = useState([])
 
   const checkTypaheadMatches = () => {
@@ -20,9 +20,10 @@ const App = () => {
     setTypaheadMatches(matches)
   }
 
+  useEffect(checkTypaheadMatches, [recipTypeQ])
+
   const onRecipTypeQChange = (e) => {
     setRecipTypeQ(e.target.value)
-    checkTypaheadMatches()
   }
 
   const handleSearch = (e) => {
@@ -51,7 +52,6 @@ const App = () => {
         onRecipTypeQChange={onRecipTypeQChange} 
         handleSearch={handleSearch} 
         recipTypeQ={recipTypeQ}
-        validRecipTypes={validRecipTypes}
         typaheadMatches={typaheadMatches}
         setTypaheadMatches={setTypaheadMatches}
         />

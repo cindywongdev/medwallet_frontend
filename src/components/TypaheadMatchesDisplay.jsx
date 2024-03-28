@@ -1,6 +1,4 @@
-const TypaheadMatchesDisplay = ({typaheadMatches}) => {
-    // console.log("we in here: ", typaheadMatches)
-
+const TypaheadMatchesDisplay = ({ typaheadMatches }) => {
     return <ul className="border-2 border-red-500 absolute top-10 p-2 bg-blue-500">
         {typaheadMatches.map((match) => {
             return <p key={match} onClick={() => {
