@@ -100,10 +100,6 @@ Presently, the application only exports a maximum of 50 search results due to th
 
 To overcome this limitation and enable exporting of all results, significant architectural changes would be required. Implementing a solution to store and manage all results could work but may potentially impact the application's performance due to the volume of data involved.
 
-**Search Input Handling Limitation**
-
-The handling of invalid inputs in the search functionality is currently rudimentary, utilizing alerts for error notification. This approach lacks sophistication and could be enhanced to provide a more user-friendly experience, such as providing a typahead dropdown of valid inputs.
-
 
 ## About the Developer
 
