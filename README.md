@@ -1,3 +1,5 @@
+# This is the continued version of Medwallet.
+
 # Medwallet
 
 Medwallet is a resource to view payment data for healthcare providers and teaching hospitals. Users can search payments by healthcare provider type (also referred to as recipient type), and can export the search results to an XLS file.
