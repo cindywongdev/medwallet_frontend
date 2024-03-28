@@ -10,6 +10,21 @@ const App = () => {
   const [typaheadMatches, setTypaheadMatches] = useState(validRecipTypes)
   const [searchResults, setSearchResults] = useState([])
 
+  const checkTypaheadMatches = () => {
+    let matches = []
+    for (const recipient_type of validRecipTypes) {
+        if (recipient_type.includes(recipTypeQ.toLowerCase())) {
+            matches.push(recipient_type)
+        }
+    }
+    setTypaheadMatches(matches)
+  }
+
+  const onRecipTypeQChange = (e) => {
+    setRecipTypeQ(e.target.value)
+    checkTypaheadMatches()
+  }
+
   const handleSearch = (e) => {
     e.preventDefault()
     e.target.reset()
@@ -28,10 +43,6 @@ const App = () => {
     }).catch((error) => console.log(error))
 
     navigate("/search")
-  }
-
-  const onRecipTypeQChange = (e) => {
-    setRecipTypeQ(e.target.value)
   }
 
   return <>

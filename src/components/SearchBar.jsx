@@ -4,22 +4,6 @@ import TypaheadMatchesDisplay from "./TypaheadMatchesDisplay";
 const SearchBar = ({onRecipTypeQChange, handleSearch, recipTypeQ, validRecipTypes, typaheadMatches, setTypaheadMatches}) => {
     // console.log(validRecipTypes)
 
-    const checkTypaheadMatches = () => {
-        let matches = []
-
-        for (const recipient_type of validRecipTypes) {
-            if (recipient_type.includes(recipTypeQ.toLowerCase())) {
-                matches.push(recipient_type)
-            }
-        }
-
-        console.log(matches)
-
-        // setTypaheadMatches(matches)
-    }
-
-    checkTypaheadMatches()
-
     return <div className="flex items-center gap-6 px-4 border-2 border-green-500 relative">
         <FaMagnifyingGlass size={25}/>
         <label htmlFor="search_form" className="text-lg font-medium">Search:</label>
