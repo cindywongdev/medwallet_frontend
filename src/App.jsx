@@ -28,7 +28,7 @@ const App = () => {
     setRecipTypeQ("")
 
     if (validRecipTypes.indexOf(recipTypeQ.toLowerCase()) === -1) {
-      alert('Oops! No results found. Please enter one of the following valid recipient types: medical doctor, doctor of osteopathy, doctor of podiatric medicine, physician assistant, nurse practitioner, certified registered nurse anesthetist, or doctor of dentistry.')
+      alert('Oops! No results found. Please enter a valid recipient type from the dropdown.')
 
       useNavigate('/')
     }
