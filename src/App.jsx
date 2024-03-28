@@ -4,12 +4,11 @@ import Header from "./components/Header"
 
 const App = () => {
   const navigate = useNavigate()
+  const validRecipTypes = ["medical doctor", "doctor of osteopathy", "doctor of podiatric medicine", "physician assistant", "nurse practitioner", "certified registered nurse anesthetist", "doctor of dentistry"]
 
   const [recipTypeQ, setRecipTypeQ] = useState("")
-  const [isValidQuery, setIsValidQuery] = useState(true)
+  const [typaheadMatches, setTypaheadMatches] = useState(validRecipTypes)
   const [searchResults, setSearchResults] = useState([])
-
-  const validRecipTypes = ["medical doctor", "doctor of osteopathy", "doctor of podiatric medicine", "physician assistant", "nurse practitioner", "certified registered nurse anesthetist", "doctor of dentistry"]
 
   const handleSearch = (e) => {
     e.preventDefault()
@@ -37,10 +36,17 @@ const App = () => {
 
   return <>
     <div className="App w-screen p-8">
-      <Header onRecipTypeQChange={onRecipTypeQChange} handleSearch={handleSearch} />
+      <Header 
+        onRecipTypeQChange={onRecipTypeQChange} 
+        handleSearch={handleSearch} 
+        recipTypeQ={recipTypeQ}
+        validRecipTypes={validRecipTypes}
+        typaheadMatches={typaheadMatches}
+        setTypaheadMatches={setTypaheadMatches}
+        />
       <Outlet context={[
         searchResults, setSearchResults,
-        isValidQuery, setIsValidQuery
+        validRecipTypes
       ]} />
     </div>
   </>

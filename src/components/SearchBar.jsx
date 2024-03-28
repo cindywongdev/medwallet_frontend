@@ -1,6 +1,9 @@
 import { FaMagnifyingGlass } from "react-icons/fa6";
+import TypaheadMatchesDisplay from "./TypaheadMatchesDisplay";
 
-const SearchBar = ({onRecipTypeQChange, handleSearch}) => {
+const SearchBar = ({onRecipTypeQChange, handleSearch, recipTypeQ, validRecipTypes, typaheadMatches, setTypaheadMatches}) => {
+    console.log(validRecipTypes)
+
     return <div className="flex items-center gap-6 px-4">
         <FaMagnifyingGlass size={25}/>
         <label htmlFor="search_form" className="text-lg font-medium">Search:</label>
@@ -16,6 +19,7 @@ const SearchBar = ({onRecipTypeQChange, handleSearch}) => {
 
             <button data-test="submit-button" type="submit" form="search_form" value="Submit" className="hover:text-white hover:bg-gray-600 hover:border-gray-600 transition-colors">Submit</button>
         </form>
+        <TypaheadMatchesDisplay typaheadMatches={typaheadMatches}/>
     </div>
 }
 
